@@ -103,12 +103,11 @@ function random (beginningRange, endRange, qtyAfterPoint){
   let i;
   if (endRange - beginningRange > 0) {
     i = beginningRange + Math.random() * (endRange - beginningRange);
-    return i.toFixed(qtyAfterPoint);
+    return Number(i.toFixed(qtyAfterPoint));
   } else if (beginningRange - endRange > 0){
     i = endRange + Math.random() * (beginningRange - endRange);
-    return i;
+    return `Возможно Вы перепутали местами "от" и "до" в аргументах функции. Если это так, то искомое значение будет = ${Number(i.toFixed(qtyAfterPoint))} Но чтобы функция работала корректно, пожалуйста, проверьте ещё раз Ваши данные и внесите их правильно (Подсказка: первый аргумент должен быть меньше второго.)`;
   }
   return NaN;
-
 }
-random(1.5, 1.25, 7);
+random(1.3, 1.25, 4);
