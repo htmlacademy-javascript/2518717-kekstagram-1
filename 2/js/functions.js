@@ -89,17 +89,17 @@ setString('q', 4, 'we');
 // Длина строки ровно 18 символов -- имяФункции('проверяемая строка', 18); // true
 // Строка длиннее 10 символов -- имяФункции('проверяемая строка', 10); // false
 
-function comparisonLength (chekedString, number){
+function compareLength (chekedString, number){
   const i = chekedString.length < number;
   return i;
 }
-comparisonLength('проверяемая строка', 10);
+compareLength('проверяемая строка', 10);
 // ==============================================
 
 // Функция по разделу "Кексобукинг" (Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно).
 // Пример: имя_функции(от, до, количество_знаков_после_запятой); // Результат: число с плавающей точкой из диапазона "от...до" с указанным "количеством знаков после запятой"
 
-function random (beginningRange, endRange, qtyAfterPoint){
+function getRandom (beginningRange, endRange, qtyAfterPoint){
   let i;
   if (endRange - beginningRange > 0) {
     i = beginningRange + Math.random() * (endRange - beginningRange);
@@ -110,4 +110,4 @@ function random (beginningRange, endRange, qtyAfterPoint){
   }
   return NaN;
 }
-random(1.3, 1.25, 4);
+getRandom(1.3, 1.25, 4);
