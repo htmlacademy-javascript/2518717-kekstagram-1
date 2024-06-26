@@ -9,7 +9,8 @@ function isPolindrom(word){
   const lowerCaseWord = noSpace.toLowerCase();
   let countTrue = 0;
   const countCicles = lowerCaseWord.length % 2 ? lowerCaseWord.length / 2 - 1 : lowerCaseWord.length / 2;
-  for (let i = 0; i < countCicles; i++) {
+  // eslint-disable-next-line no-cond-assign
+  for (let i = 0; countTrue = 0 || i < countCicles; i++) {
     // eslint-disable-next-line no-unused-expressions
     lowerCaseWord[i] === lowerCaseWord[lowerCaseWord.length - 1 - i] ? countTrue++ : countTrue = 0;
   }
