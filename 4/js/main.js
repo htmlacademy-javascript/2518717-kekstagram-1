@@ -1,10 +1,8 @@
 // Задание по Кекстаграм
 // ================================================================================
-import {getRandomInteger} from './getRandomArrayElement.js';
-import {getRandomArrayElement} from './getRandomArrayElement.js';
-import {getRandomArray} from './getRandomArray.js';
-import {createUnicValue} from './createUnicValue.js';
-import {CreateUnicUser} from './CreateUnicUser.js';
+
+import { fullDescriptionRooms } from './full-description-rooms.js';
+import { descriptionPhotos } from './description-photos.js';
 
 const DESCRIPTION_PHOTOS = [
   'Редкий кадр стоил автору долгих томительных часов ожидания',
@@ -23,46 +21,19 @@ const TEXT_COMMENTS = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const NAME_AUTHORS = [
-  'Артём',
-  'Гена',
-  'Чебурашка',
-  'Шапокляк',
-  'Просто босс',
-];
+const NAME_AUTHORS = ['Артём', 'Гена', 'Чебурашка', 'Шапокляк', 'Просто босс'];
 
-const createUnicId = createUnicValue(1, 25);
-const createUnicIdComment = createUnicValue(1, 10000000);
+descriptionPhotos();
 
-const DescriptionPhotos = () => ({
-  id: createUnicId(),
-  url: `photos/${createUnicId()}.jpg`,
-  description: getRandomArrayElement(DESCRIPTION_PHOTOS),
-  likes: getRandomInteger(15,200),
-  comments: {
-    id: createUnicIdComment(),
-    avatar: `img/avatar-${getRandomInteger(1,6)}.svg`,
-    message: getRandomArrayElement(TEXT_COMMENTS),
-    name: getRandomArrayElement(NAME_AUTHORS),
-  }
-});
-DescriptionPhotos();
+export{DESCRIPTION_PHOTOS};
+export{TEXT_COMMENTS};
+export{NAME_AUTHORS};
 
 // Задание по Кексобукинг
 // ================================================================================
 
-const TYPE_LOCATION = [
-  'palace',
-  'flat',
-  'house',
-  'bungalow',
-  'hotel',
-];
-const TIME_CHECK = [
-  '12:00',
-  '13:00',
-  '14:00',
-];
+const TYPE_LOCATION = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
+const TIME_CHECK = ['12:00', '13:00', '14:00'];
 const TYPE_FEATURES = [
   'wifi',
   'dishwasher',
@@ -92,30 +63,11 @@ const TITLE_ROOMS = [
   'Три номера по цене двух!',
   'У нас скучно не будет!',
 ];
+export{TYPE_LOCATION};
+export{TIME_CHECK};
+export{TYPE_FEATURES};
+export{DESCRIPTION_ROOMS};
+export{PHOTO_ROOMS};
+export{TITLE_ROOMS};
 
-const FullDescriptionRooms = () => ({
-  author: {
-    avatar: `img/avatars/user${CreateUnicUser()}.png`,
-  },
-  offer: {
-    title: getRandomArrayElement(TITLE_ROOMS),
-    address: {
-      lat: getRandomInteger(35.65000,35.70000, 5),
-      lng: getRandomInteger(139.70000,139.80000, 5),
-    },
-    price: getRandomInteger(1000,10000),
-    type: getRandomArrayElement(TYPE_LOCATION),
-    rooms: getRandomInteger(1,5),
-    guests: getRandomInteger(1,10),
-    checkin: getRandomArrayElement(TIME_CHECK),
-    checkout: getRandomArrayElement(TIME_CHECK),
-    features: getRandomArray(TYPE_FEATURES),
-    description: getRandomArrayElement(DESCRIPTION_ROOMS),
-    photos: getRandomArray(PHOTO_ROOMS),
-    location: {
-      lat: getRandomInteger(35.65000,35.70000, 5),
-      lng: getRandomInteger(139.70000,139.80000, 5),
-    },
-  }
-});
-FullDescriptionRooms();
+fullDescriptionRooms();
